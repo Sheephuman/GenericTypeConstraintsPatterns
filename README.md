@@ -14,7 +14,8 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 型システムそのものに引き上げて解決する設計を示すことにあります。<br> <br>
 ---<br> <br>
 
-## このリポジトリで扱うテーマ<br>
+## このリポジトリで扱うテーマ
+<br>
 
 <br>
 ・ジェネリック型制約（where : T）を用いた設計の具体例<br>
@@ -25,7 +26,8 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 <br>
 ---<br>
 <br>
-## 設計思想<br>
+## 設計思想
+<br>
 <br>
 このサンプルでは、次の方針を一貫して採用しています。<br>
 <br>
@@ -39,7 +41,8 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 <br>
 ---<br>
 <br>
-## 特徴的な実装例<br>
+## 特徴的な実装例
+<br>
 <br>
 ・UserEntity は CSV 読み込み専用として定義されている<br>
 ・LogEntity は JSON 読み込み専用として定義されている<br>
@@ -52,7 +55,8 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 <br>
 ---<br>
 <br>
-## 対象読者<br>
+## 対象読者
+<br>
 <br>
 ・C# 中級〜上級者<br>
 ・ジェネリック型制約を実務で使いこなしたい人<br>
@@ -73,7 +77,8 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 <br>
 ---<br>
 <br>
-## 最後に<br>
+## 最後に
+<br>
 <br>
 ジェネリック型制約は、<br>
 単なる「便利な文法」ではなく、<br>
@@ -82,8 +87,3 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 本リポジトリが、<br>
 型で設計する感覚を掴むきっかけになれば幸いです。<br>
 
----
-
-この README、
-Qiita 記事へのリンクを最後に足しても綺麗に収まる構造になってる。
-必要なら「章立てと対応するディレクトリ構成」版も作れる。
