@@ -1,0 +1,28 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:entity="clr-namespace:GenericTypeConstraintsPatterns.Entity"
+    xmlns:local="clr-namespace:GenericTypeConstraintsPatterns.Selectors">
+
+    <DataTemplate x:Key="UserTemplate" DataType="{x:Type entity:UserEntity}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Id}" />
+            <TextBlock Text="{Binding DisplayName}" />
+            <TextBlock Text="{Binding affiliation}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LogTemplate" DataType="{x:Type entity:LogEntity}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Timestamp}" />
+            <TextBlock Text="{Binding Level}" />
+            <TextBlock Text="{Binding Message}" />
+            <TextBlock Text="LOG TEMPLATE HIT"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <local:EntityTemplateSelector
+        x:Key="EntityTemplateSelector"
+        UserTemplate="{StaticResource UserTemplate}"
+        LogTemplate="{StaticResource LogTemplate}" />
+</ResourceDictionary>

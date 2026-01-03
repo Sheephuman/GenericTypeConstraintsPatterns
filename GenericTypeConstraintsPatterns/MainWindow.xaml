@@ -1,0 +1,132 @@
+﻿    <Window x:Class="GenericTypeConstraintsPatterns.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:entity="clr-namespace:GenericTypeConstraintsPatterns.Entity"
+           xmlns:local2="clr-namespace:GenericTypeConstraintsPatterns.Selectors"
+           xmlns:local="clr-namespace:GenericTypeConstraintsPatterns.Entity"
+
+            mc:Ignorable="d"
+            Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+
+        <!-- UserEntity -->
+        <DataTemplate x:Key="UserEntityTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Id}" Margin="5"/>
+                <TextBlock Text="{Binding DisplayName}" Margin="5"/>
+                <TextBlock Text="{Binding affiliation}" Margin="5"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- LogEntity -->
+        <DataTemplate x:Key="LogEntityTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Timestamp}" Margin="5"/>
+                <TextBlock Text="{Binding Level}" Margin="5"/>
+                <TextBlock Text="{Binding Message}" Margin="5"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- Selector に Template を注入 -->
+        <local2:EntityTemplateSelector
+        x:Key="EntityTemplateSelector"
+        UserTemplate="{StaticResource UserEntityTemplate}"
+        LogTemplate="{StaticResource LogEntityTemplate}" />
+
+    </Window.Resources>
+    <!--リソース "EntityTemplateSelector" を解決できません。
+        対応
+
+          <Window.Resources>
+          <local:EntityTemplateSelector x:Key="EntityTemplateSelector" />
+      </Window.Resources>
+        -->
+
+
+        <!--
+        <DataTemplate DataType="{x:Type local:UserEntity}"> 型 'UserEntity' が見つかりませんでした。アセンブリ参照が失われていないか、また、すべての参照アセンブリがビルドされているかどうかを確認してください。
+
+        対応
+        Entity 用の xmlns を別に切る
+        xmlns:entity="clr-namespace:GenericTypeConstraintsPatterns.Entity"
+
+    
+        -->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+    
+        <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="UserData" Command="{Binding ViewModelCommands.ShowInMemoryCommand}" Margin="3" 
+                     FontSize="20" 
+                    />
+                    <Button Content="CSV" Command="{Binding ViewModelCommands.ShowCsvCommand}" Margin="3" 
+                     FontSize="20"/>
+                    <Button Content="JSON" Command="{Binding ViewModelCommands.ShowJsonCommand}" Margin="3" 
+                     FontSize="20"/>
+
+                    <Button Content="File" Command="{Binding ViewModelCommands.FilePickerCommand}" Margin="20,3,3,3" 
+                    FontSize="20"/>
+
+                    <TextBox Text="{Binding FilePath}"
+                  
+                    Margin="20,3,3,3" Width ="400"
+                    FontSize="20"/>
+
+
+                </StackPanel>
+            
+          
+            </StackPanel>
+            <StackPanel Grid.Row="2" >
+                <ToggleButton x:Name="EntityToggleButton"
+                IsChecked="{Binding IsToggled}"
+                Command="{Binding ViewModelCommands.ToggleEntityCommand}"
+                Width="120" Height="50" HorizontalAlignment="Left">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Content" Value="UserEntity"/>
+
+                            <!-- チェック状態で見た目を変更 -->
+                            <Style.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Background" Value="LightGreen"/>
+                                    <Setter Property="Content" Value="LogEntity"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+             
+
+
+                <!-- ListViewに何も表示されない対応
+                GridViewtemplateの設定
+                -->
+                    <!--リソース "EntityTemplateSelector" を解決できません。
+                    対応： <Window.Resources>で Selector を リソースとして定義する
+                    ② その後で ListView から参照する
+                    -->
+
+                    <!-- ListView で型名が出てしまう事に対応   -->
+
+            <ListView Background="AliceBlue"
+    ItemsSource="{Binding CurrentEntity.Items, Mode=OneWay}"
+    ItemTemplateSelector="{StaticResource EntityTemplateSelector}"
+    FontSize="20"
+    Height="340"
+    ScrollViewer.CanContentScroll="True"
+/>
+        </StackPanel>
+      
+    </Grid>
+    </Window>
