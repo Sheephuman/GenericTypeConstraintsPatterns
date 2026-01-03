@@ -3,6 +3,8 @@ WPF / C# におけるジェネリック型制約の実装例集<br> <br>
 
 Visual studio 2026 ``.net7 -10`` C#
 
+blog : https://qiita.com/EndOfData/items/4c76a22a93943c19d1f2
+
 # 動画 
 
 
@@ -53,6 +55,7 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 ・CsvRepository / JsonRepository は別クラスとして分離されている<br>
 ・Entity 生成ロジックは Repository 外部から factory として注入される<br>
 ・「CSV を読み込んだ」という事実を Token 型として表現する設計を採用している<br>
+→ **いいね条件が達成された場合に実装します。**
 <br>
 これにより、<br>
 「型では保証されないはずの情報」を型として扱う例を示しています。<br>
@@ -75,9 +78,10 @@ https://github.com/user-attachments/assets/f157e9eb-5cd8-478a-9d8e-4f98792d0704
 
 ## 注意事項<br>
 <br>
-・本リポジトリのコードは「実務でのそのままの利用」を目的としていません<br>
-・可読性よりも設計意図の明示を優先しています<br>
-・一部の実装は意図的に回りくどく書かれています<br>
+・本リポジトリのコードは実務で使おうと思えば使えますが、初期コストは高いです。<br>
+「とりあえず短時間で動くものを」より**「前もって型によるトラブルをなくそう」**を意識しています。
+
+
 <br>
 「なぜこう書くのか」を考えながら読むことを前提としています。<br>
 <br>
