@@ -1,8 +1,11 @@
 ﻿using GenericTypeConstraintsPatterns.Interface;
+using System.Collections.ObjectModel;
 
 
 namespace GenericTypeConstraintsPatterns.Entity
 {
+
+
 
     /// <summary>
     /* 戻り値型を Interface 側で固定する必要がある
@@ -14,7 +17,7 @@ LoadFromJson() の戻り値が LogEntity で確定
         */
 
     /// </summary>
-        public sealed class LogEntity
+    public sealed class LogEntity
            : IJsonReadable<LogEntity>,ILogItem
         {
             public DateTime Timestamp { get; init; } = DateTime.Now;

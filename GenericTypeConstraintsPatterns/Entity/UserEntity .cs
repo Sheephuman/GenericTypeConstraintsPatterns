@@ -1,10 +1,6 @@
 ﻿
 using GenericTypeConstraintsPatterns.Interface;
-using GenericTypeConstraintsPatterns.Repository;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace GenericTypeConstraintsPatterns.Entity
 {
