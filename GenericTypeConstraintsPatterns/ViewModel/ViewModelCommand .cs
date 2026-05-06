@@ -90,8 +90,16 @@ namespace GenericTypeConstraintsPatterns.ViewModel
             ///CsvファイルのLoadの際、ラッパークラスをジェネリック化することで型安全に呼び出す実装　
             ///→　LogEntityでの呼び出しが出来なくなる。
             ///
-            var csvloader = new CsvLoader<UserEntity>();
-           
+
+
+
+
+            var csvloader = new CsvLoader<UserEntity>(line => new UserEntity
+            {
+                Id = int.Parse(line[0]),
+                DisplayName = line[1],
+                affiliation = line[2]
+            });
             ///null 参照の可能性があるものの逆参照です対応済み
             ///ifブロックで囲った
             if (_mainViewModel.CurrentEntity is ListViewModel<UserEntity> vm)

@@ -51,7 +51,7 @@ namespace GenericTypeConstraintsPatterns.Repository
                 {
                     rowIndex++;
                     var testcolumns = line.Split(',');
-                    Debug.WriteLine($"Row {rowIndex}, ColumnCount: {testcolumns.Length}");
+                   // Debug.WriteLine($"Row {rowIndex}, ColumnCount: {testcolumns.Length}");
                 }
             }
 
