@@ -31,7 +31,7 @@ JSONファイルへのシリアライズ/デシリアライズ、ファイルパ
             _factory = entityFactory;
         }
 
-        public IEnumerable<TEntity> LoadAll()
+        public IEnumerable<TEntity> JsonLoadAll()
         {
             try
             {

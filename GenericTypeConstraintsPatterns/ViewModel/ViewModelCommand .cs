@@ -206,7 +206,7 @@ namespace GenericTypeConstraintsPatterns.ViewModel
                 if (_mainViewModel.CurrentEntity is ListViewModel<LogEntity> logVm)
                 {
                     logVm.Items.Clear();
-                    foreach (var e in repository.LoadAll())
+                    foreach (var e in repository.JsonLoadAll())
                         logVm.Items.Add(e);
                 }
            

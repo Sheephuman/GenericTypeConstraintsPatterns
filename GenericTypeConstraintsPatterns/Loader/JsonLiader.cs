@@ -31,7 +31,7 @@ namespace GenericTypeConstraintsPatterns.Loader
                 return logENtity;
             });
 
-            return jsonRepository.LoadAll();
+            return jsonRepository.JsonLoadAll();
         }
 
     }
