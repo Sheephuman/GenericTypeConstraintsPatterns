@@ -1,0 +1,119 @@
+﻿<!-- SheepWomanInputForm.xaml -->
+<Window x:Class="SheepWomanValidation.SheepWomanInputForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:entity="clr-namespace:SheepWomanValidation.Entity"
+        Title="🐑 ひつじ属性女性診断フォーム" Height="700" Width="540">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="1. ひつじ属性" Grid.Row="0" Margin="0,0,0,12">
+            <StackPanel>
+                <ComboBox SelectedValue="{Binding Entity.Attribute, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag"
+                          Height="35"
+                          FontSize="14">
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.FluffySheepEar}" Content="ふわふわ羊耳（癒し系）"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.EnergeticLamb}" Content="元気いっぱい仔羊（活発系）"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.CalmBlackSheep}" Content="おっとり黒羊（クール系）"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.TsundereSheep}" Content="ツンデレ羊（ツン系）"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.SpoiledLamb}" Content="甘えん坊羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.SheepScholar}" Content="賢い羊博士"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.ShyWhiteSheep}" Content="照れ屋白羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.BigSisterSheep}" Content="お姉さん羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.MischievousLamb}" Content="いたずら仔羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.CoolBeautySheep}" Content="クールビューティー羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.SportsSheep}" Content="スポーツ羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.LiterarySheep}" Content="文学少女羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.IdolSheep}" Content="アイドル羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.MaidSheep}" Content="メイド羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.AdventurerSheep}" Content="冒険家羊"/>
+                    <ComboBoxItem Tag="{x:Static entity:SheepAttribute.Other}" Content="その他"/>
+                </ComboBox>
+
+                <TextBox Margin="0,8,0,0"
+                         Height="32"
+                         FontSize="13"
+                         Text="{Binding Entity.FreeComment, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="2. 年齢層" Grid.Row="1" Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="20代" IsChecked="{Binding Entity.Age, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Twenties}"/>
+                <RadioButton Content="30代" IsChecked="{Binding Entity.Age, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Thirties}"/>
+                <RadioButton Content="40代" IsChecked="{Binding Entity.Age, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Forties}"/>
+                <RadioButton Content="50代" IsChecked="{Binding Entity.Age, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Fifties}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="3. 趣味や嗜好" Grid.Row="2" Margin="0,0,0,12">
+            <WrapPanel>
+                <CheckBox Content="毛糸・編み物" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=毛糸・編み物}"/>
+                <CheckBox Content="草原散歩・牧場巡り" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=草原散歩・牧場巡り}"/>
+                <CheckBox Content="読書（ファンタジー・羊文学）" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=読書（ファンタジー・羊文学）}"/>
+                <CheckBox Content="料理（羊肉以外・スイーツ多め）" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=料理（羊肉以外・スイーツ多め）}"/>
+                <CheckBox Content="癒し系BGM・羊の鳴き声ASMR" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=癒し系BGM・羊の鳴き声ASMR}"/>
+                <CheckBox Content="旅行（牧場・動物園巡り）" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=旅行（牧場・動物園巡り）}"/>
+                <CheckBox Content="羊毛フェルト作り" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=羊毛フェルト作り}"/>
+                <CheckBox Content="羊ぬいぐるみ・グッズ集め" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=羊ぬいぐるみ・グッズ集め}"/>
+                <CheckBox Content="イラスト描き（羊モチーフ）" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=イラスト描き（羊モチーフ）}"/>
+                <CheckBox Content="牧場・育成ゲーム" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=牧場・育成ゲーム}"/>
+                <CheckBox Content="ヨガ・瞑想（羊雲を眺めながら）" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=ヨガ・瞑想（羊雲を眺めながら）}"/>
+                <CheckBox Content="羊カフェ・動物カフェ巡り" Margin="8,6"
+                          IsChecked="{Binding Entity.Hobbies, Converter={StaticResource StringListToBoolConverter}, ConverterParameter=羊カフェ・動物カフェ巡り}"/>
+            </WrapPanel>
+        </GroupBox>
+
+        <GroupBox Header="4. 従順か、独立志向か" Grid.Row="3" Margin="0,0,0,20">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="🐑 従順" IsChecked="{Binding Entity.Personality, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Obedient}"/>
+                <RadioButton Content="🐐 独立志向" IsChecked="{Binding Entity.Personality, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Independent}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Header="検証エラー" Grid.Row="0" Margin="0,0,0,15">
+                <ItemsControl ItemsSource="{Binding ValidationErrors}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" Foreground="Red" Margin="2"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GroupBox>
+
+            <Button Grid.Row="1"
+                    Content="🐑 検証して診断する"
+                    Command="{Binding ValidateCommand}"
+                    Height="50"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Background="#FFB74D"
+                    Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>

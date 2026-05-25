@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="GenericTypeConstraintsPatterns/GenericTypeConstraintsPatterns.csproj" />
+  <Project Path="SheepWomanValidation/SheepWomanValidation.csproj" Id="49fedae4-ef71-4976-86b3-d4b04ea274f6" />
 </Solution>
