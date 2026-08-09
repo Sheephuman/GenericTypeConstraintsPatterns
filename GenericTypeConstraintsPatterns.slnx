@@ -1,4 +1,5 @@
 <Solution>
-  <Project Path="GenericTypeConstraintsPatterns/GenericTypeConstraintsPatterns.csproj" />
-  <Project Path="SheepWomanValidation/SheepWomanValidation.csproj" Id="49fedae4-ef71-4976-86b3-d4b04ea274f6" />
+  <Project Path="../../../../../../../../TestCode/GenericTypeConstraintsPatterns/GenericTypeConstraintsPatterns/GenericTypeConstraintsPatterns.csproj" />
+  <Project Path="../../../../../../../../TestCode/GenericTypeConstraintsPatterns/HeatResponseToken/HeatResponseToken.csproj" Id="933d7c97-baf1-4c90-9376-a6fb2a7eafce" />
+  <Project Path="../../../../../../../../TestCode/GenericTypeConstraintsPatterns/SheepWomanValidation/SheepWomanValidation.csproj" Id="49fedae4-ef71-4976-86b3-d4b04ea274f6" />
 </Solution>
